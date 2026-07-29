@@ -385,11 +385,13 @@ def main() -> None:
     # variables such as OPENAI_API_KEY, ANTHROPIC_API_KEY, or GEMINI_API_KEY.
     task_lm = dspy.LM(
         task_model_name,
+        api_key=os.environ["GEMINI_API_KEY"],
         temperature=0.0,
         max_tokens=200,
     )
     reflection_lm = dspy.LM(
         reflection_model_name,
+        api_key=os.environ["GEMINI_API_KEY"],
         temperature=1.0,
         max_tokens=8000,
     )
