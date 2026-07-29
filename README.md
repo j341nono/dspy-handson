@@ -15,67 +15,7 @@ DSPyで英文難易度分類プログラムを作成し、GEPAによってプロ
 - 最適化前後の指示文とtest精度の比較
 - 最適化済みプログラムの保存
 
-## ファイル構成
-
-```text
-.
-├── .env.example
-├── .gitignore
-├── .python-version
-├── README.md
-├── dspy_gepa_handson.py
-└── pyproject.toml
-```
-
-`uv sync`の実行後には`uv.lock`と`.venv`が生成されます。プログラムの実行後には、次の出力ディレクトリが作成されます。
-
-```text
-artifacts/
-├── gepa_logs/
-└── sentence_difficulty_gepa.json
-```
-
-## 1. uvのインストール
-
-すでに`uv`を利用できる場合、この手順は不要です。
-
-macOSまたはLinuxでは、公式インストーラーを利用できます。
-
-```bash
-curl -LsSf https://astral.sh/uv/install.sh | sh
-```
-
-Homebrewを利用する場合は、次でもインストールできます。
-
-```bash
-brew install uv
-```
-
-インストールを確認します。
-
-```bash
-uv --version
-```
-
-## 2. プロジェクトの準備
-
-ZIPを展開し、プロジェクトディレクトリへ移動します。
-
-```bash
-unzip dspy_gepa_handson.zip
-cd dspy_gepa_handson
-```
-
-`.python-version`に従ってPython 3.11を用意し、依存関係を同期します。
-
-```bash
-uv python install
-uv sync
-```
-
-`uv sync`を実行すると、プロジェクト直下に`.venv`が作成されます。通常は仮想環境を手動でactivateする必要はなく、以降のコマンドを`uv run`経由で実行できます。
-
-## 3. APIキーとモデルの設定
+## APIキーとモデルの設定
 
 環境変数のひな型をコピーします。
 
@@ -109,7 +49,7 @@ AnthropicやGeminiなどを利用する場合は、モデル識別子とAPIキ�
 # ANTHROPIC_API_KEY=使用するAPIキー
 ```
 
-## 4. 実行
+## 実行
 
 まずは、探索コストの小さい`light`で実行します。
 
@@ -136,7 +76,7 @@ uv run python dspy_gepa_handson.py \
   --show-history
 ```
 
-## 5. 実行時に確認する内容
+## 実行時に確認する内容
 
 ### 最適化前の指示文
 
@@ -183,7 +123,7 @@ Optimized test accuracy: ...
 
 この比較により、validation setに対する改善だけでなく、未知データへの汎化も確認できます。
 
-## 6. 主なコマンド
+## 主なコマンド
 
 依存関係を同期する場合:
 
@@ -215,7 +155,7 @@ uv add パッケージ名
 uv lock
 ```
 
-## 7. 次の練習案
+## 次の練習案
 
 このコードを一度動かした後は、次の順で拡張すると理解しやすくなります。
 
